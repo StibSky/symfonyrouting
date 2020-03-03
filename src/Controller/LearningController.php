@@ -3,9 +3,15 @@
 namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+
+
 class LearningController extends AbstractController
 {
     private $name;
+
+    private function name() {
+        return $this->name;
+    }
 
     /**
      * @Route("/aboutMe", name="aboutMe")
@@ -25,7 +31,6 @@ class LearningController extends AbstractController
         if (!isset($_SESSION['name'])) {
             $_SESSION['name'] = 'undefined';
         }
-        var_dump($_SESSION['name']);
         return $this->render('learning/showMyName.html.twig', [
             'controller_name' => 'LearningController',
         'name' => $_SESSION['name'],
@@ -37,10 +42,10 @@ class LearningController extends AbstractController
      */
     public function changeMyName()
     {
-        var_dump($_SESSION['name']);
         if (!isset($_POST['name'])) {
             $_POST['name'] = "undefined";
         }
+
         if (isset($_SESSION['name'])) {
             $_SESSION['name'] = $_POST['name'];
             $this->name = $_SESSION['name'];

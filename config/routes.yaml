@@ -1,8 +1,8 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-index:
-  path: /aboutMe
+aboutMe:
+  path: /aboutBecode
   controller: App\Controller\LearningController::aboutMe
 
 showMyName:
